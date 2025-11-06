@@ -1,0 +1,13 @@
+import 'package:flutter/material.dart';
+import 'package:fruithub/features/splash/presenmtaion/splash_view.dart';
+
+Route<dynamic>? onGenerateRoute(RouteSettings settings) {
+  switch (settings.name) {
+    case SplashView.routeName:
+      return  MaterialPageRoute(
+        builder: (context) => const Scaffold(),
+      );
+    default:
+      return MaterialPageRoute(builder: (context) => const Scaffold());
+  }
+}

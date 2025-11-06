@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/helper/spacing.dart';
+import '../../../core/theming/colors.dart';
+import '../../../core/theming/styles.dart';
+import '../../widget/custom_button_container_gradient.dart';
+
+class CustomButtonWithNumberTextContainer extends StatelessWidget {
+  const CustomButtonWithNumberTextContainer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height:80.h,
+        width: MediaQuery.of(context).size.width,
+        color: ColorsManager.white,
+        child:
+        Row(
+          children: [
+            horizontalSpacing(20.w),
+            CustomButtonContainerGradientColor(height: 63.h, width: 200.w, title: 'Ordenar ahora', onTap: () {  },),
+
+            horizontalSpacing(40.w),
+            Text(
+                '\$12.58',
+                style: TextStyles.font30NavyBlue
+            )                ],
+        )
+    );
+  }
+}

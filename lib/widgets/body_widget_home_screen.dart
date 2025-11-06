@@ -1,0 +1,77 @@
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../core/helper/spacing.dart';
+import '../core/theming/styles.dart';
+import '../features/home/cubit_fav/favoriets_cubit_recomendes.dart';
+import '../features/home/cubit_fav/favorites_cubit_populares.dart';
+import '../features/home/models/model_popular_catogery.dart';
+import '../features/home/models/model_recomend_catogery.dart';
+import '../features/home/models/model_small_catogery.dart';
+import '../features/home/widget/custom_container_products_populares_widget.dart';
+import '../features/home/widget/custom_small_catogery.dart';
+import '../features/home/widget/recomenderes_catogery.dart';
+
+class BodyWidgetHome extends StatelessWidget {
+  const BodyWidgetHome({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children:  [
+        Text('Explorar categrias',style: TextStyles.font16navyblue,),
+        verticalSpacing(20.h),
+        SizedBox(
+          height: 130.h,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: smallCategories.length,
+            itemBuilder: (BuildContext context, int index) {
+              return  CustomSmallCatogery(category:  smallCategories[index],);
+            },),
+        ),
+        verticalSpacing(10.h),
+        Text('Products populares',style: TextStyles.font16navyblue,),
+        verticalSpacing(10.h),
+        BlocBuilder<FavoriteCubit, List<PopularCategoryModel>>(
+          builder: (context, favorites) {
+            final cubit = context.read<FavoriteCubit>();
+
+            return SizedBox(
+              height: 224.h,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: popularCategories.length, // دي القائمة الأصلية مش favorites
+                itemBuilder: (context, index) {
+                  final item = popularCategories[index];
+                  final isFav = cubit.isFavorite(item);
+
+                  return CustomContainerProductsPopularesWidget(cubit: cubit, item: item, isFav: isFav);
+                },
+              ),
+            );
+          },
+        ),
+        verticalSpacing(10.h),
+        Text('Recomendados',style: TextStyles.font16navyblue,textAlign: TextAlign.start,),
+        verticalSpacing(10.h),
+
+        BlocBuilder<FavoriteCubitRecomendes, List<RecomendesCategoryModel>>(
+          builder: (context, favorites) {
+            final cubit = context.read<FavoriteCubitRecomendes>();
+
+            return RecomendersCatogeryWithPhotoAndPrice(cubit: cubit);
+          },
+        ),
+
+      ],
+    );
+  }
+}
+

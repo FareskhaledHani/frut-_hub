@@ -1,0 +1,47 @@
+import '../../../generated/assets.dart';
+
+class RecomendesCategoryModel {
+  final String title;
+  final String description;
+  final String image;
+  final double price;
+  final String subTitle;
+
+
+  const RecomendesCategoryModel({
+    required this.title,
+    required this.description,
+    required this.image,
+    required this.price,
+    required this.subTitle,
+
+  });
+
+
+}
+
+
+
+final List<RecomendesCategoryModel> RecomendesCategories = [
+  const RecomendesCategoryModel(
+    title: 'Pizza Classica',
+    subTitle: 'Malteadas tropicales',
+    description: 'Elaborado con jugos naturales',
+    image: Assets.imagesNaturales,
+    price: 16.00,
+  ),
+  const RecomendesCategoryModel(
+    title: 'Malteadas tropicales',
+    subTitle: 'Malteadas tropicales',
+    description: 'Salsa clásica de la casa',
+    image: Assets.imagesNaturales,
+    price: 20,
+  ),
+  const RecomendesCategoryModel(
+    title: 'Burger Premium',
+    subTitle: 'Pizza Classica',
+    description: 'Carne 100% Angus',
+    image: Assets.imagesNaturales,
+    price: 15.00,
+  ),
+];
