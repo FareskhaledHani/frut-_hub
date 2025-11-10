@@ -25,7 +25,8 @@ class RestApp extends StatelessWidget {
         initialRoute: Routes.onBoarding,
 
         theme: ThemeData(
-          primaryColor: ColorsManager.lighterGray,
+          scaffoldBackgroundColor: ColorsManager.white,
+
         ),
       ),
     );

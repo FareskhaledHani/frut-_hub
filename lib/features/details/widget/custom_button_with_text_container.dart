@@ -13,9 +13,15 @@ class CustomButtonWithNumberTextContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height:80.h,
+      decoration: BoxDecoration(
+          border: Border.all(color: ColorsManager.grayLightWhite
+
+          ),
+          color: ColorsManager.white),
+      padding: EdgeInsets.only(bottom: 10.h),
+        height:110.h,
         width: MediaQuery.of(context).size.width,
-        color: ColorsManager.white,
+
         child:
         Row(
           children: [

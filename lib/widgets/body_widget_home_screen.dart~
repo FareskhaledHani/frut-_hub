@@ -26,7 +26,7 @@ class BodyWidgetHome extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children:  [
         Text('Explorar categrias',style: TextStyles.font16navyblue,),
-        verticalSpacing(5.h),
+        verticalSpacing(20.h),
         SizedBox(
           height: 130.h,
           child: ListView.builder(

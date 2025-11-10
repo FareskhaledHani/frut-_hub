@@ -14,13 +14,12 @@ class Assets {
   static const String imagesBurrito = 'assets/images/burrito.png';
   static const String imagesChristopherCampbellRDEOVtE7vOsUnsplash = 'assets/images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg';
   static const String imagesFrias = 'assets/images/frias.png';
-  static const String imagesHamburger = 'assets/images/hamburger.png';
   static const String imagesHome = 'assets/images/home.png';
   static const String imagesLogo = 'assets/images/logo.png';
-  static const String imagesMiniPizaa = 'assets/images/miniPizaa.png';
   static const String imagesNaturales = 'assets/images/naturales.png';
   static const String imagesPercient = 'assets/images/percient.png';
   static const String imagesPerson = 'assets/images/person.png';
+  static const String imagesPizzaClassica = 'assets/images/PizzaClassica.png';
   static const String imagesTacos = 'assets/images/tacos.png';
 
 }

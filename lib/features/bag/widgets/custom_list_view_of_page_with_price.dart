@@ -35,9 +35,20 @@ class CustomListViewOfPageWithPrice extends StatelessWidget {
                       padding: EdgeInsets.all(20.sp),
                       height: 299.h,
                       width: 243.w,
+
                       decoration: BoxDecoration(
-                          color: ColorsManager.white,
-                          borderRadius: BorderRadius.circular(10)),
+                        color: ColorsManager.white,
+                        boxShadow:  [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 10,
+                              spreadRadius: 0,
+                              offset: const Offset(0, 3)),
+
+                        ],
+                        borderRadius: BorderRadius.circular(10.r),
+
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [

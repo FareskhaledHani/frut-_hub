@@ -28,24 +28,30 @@ class CustomContainerProductsPopularesWidget extends StatelessWidget {
         context.pushNamed(Routes.detailsScreen);
       },
       child: Container(
-        margin: EdgeInsets.all(10.sp),
+        margin: EdgeInsets.all(5.sp),
         height: 214.h,
         width: 174.w,
         decoration: BoxDecoration(
-          boxShadow: const [
+            color: ColorsManager.white,
+          boxShadow:  [
             BoxShadow(
-                color: ColorsManager.gray,
+                color: Colors.black.withOpacity(0.1),
                 blurRadius: 10,
                 spreadRadius: 0,
-                offset: Offset(0, 3))
+                offset: const Offset(0, 3)),
+
           ],
           borderRadius: BorderRadius.circular(10.r),
-          color: ColorsManager.white,
+
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            
             Row(
+
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 IconButton(
@@ -54,14 +60,34 @@ class CustomContainerProductsPopularesWidget extends StatelessWidget {
                   icon: Icon(
                     isFav ? Icons.favorite : Icons.favorite_border,
                     color: isFav ? Colors.red : Colors.grey,
+
                   ),
                 ),
               ],
             ),
-            SizedBox(
-                height: 90.h,
-                width: 90.w,
-                child: Image.asset(item.image, scale: 1.5)),
+            Container(
+
+              height: 90.h,
+              width: 90.w,
+                decoration: BoxDecoration(
+                  color: ColorsManager.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.blue.withOpacity(0.3),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                  image: DecorationImage(
+                    image: AssetImage(item.image),
+                  scale: 1
+                  ),
+                  shape: BoxShape.circle,
+
+                ),
+
+            ),
+            verticalSpacing(10),
             SizedBox(
               height: 60.h,
               child: Row(
@@ -79,8 +105,23 @@ class CustomContainerProductsPopularesWidget extends StatelessWidget {
                           style: TextStyles.font12navyblue),
                     ],
                   ),
-                  const Icon(Icons.navigate_next,
-                      color: ColorsManager.mainBlue, size: 30),
+                  Container(
+                    height: 29.h,
+                    width: 29.w,
+                    decoration: BoxDecoration(
+                      color: ColorsManager.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.blue.withOpacity(0.3),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(Icons.navigate_next,
+                        color: ColorsManager.mainBlue, size: 30),
+                  ),
                 ],
               ),
             ),

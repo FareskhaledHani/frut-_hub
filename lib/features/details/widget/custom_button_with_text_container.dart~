@@ -13,14 +13,20 @@ class CustomButtonWithNumberTextContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height:80.h,
+      decoration: BoxDecoration(
+          border: Border.all(color: ColorsManager.grayLightWhite
+
+          ),
+          color: ColorsManager.white),
+      padding: EdgeInsets.only(bottom: 10.h),
+        height:110.h,
         width: MediaQuery.of(context).size.width,
-        color: ColorsManager.white,
+
         child:
         Row(
           children: [
             horizontalSpacing(20.w),
-            CustomButtonContainerGradientColor(height: 67.h, width: 200.w, title: 'Ordenar ahora', onTap: () {  },),
+            CustomButtonContainerGradientColor(height: 53.h, width: 200.w, title: 'Ordenar ahora', onTap: () {  },),
 
             horizontalSpacing(40.w),
             Text(

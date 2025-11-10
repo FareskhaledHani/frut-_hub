@@ -30,7 +30,7 @@ final List<PopularCategoryModel> popularCategories = [
    const PopularCategoryModel(
     title: 'Tacos Deluxe',
     description: 'Con guacamole y limón',
-     image: 'assets/images/miniburger.png',
+     image: 'assets/images/miniPizaa.png',
     price: 9.50,
   ),
    const PopularCategoryModel(

@@ -26,9 +26,17 @@ class CustomContainerDescriptionAndIntegration extends StatelessWidget {
                 SizedBox(
                     width: 323.w,
                     child: Text('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero ',style: TextStyles.font11NavyBlueLight,)),
-                verticalSpacing(20.h),
+                verticalSpacing(30.h),
 
-                Text('Ingredientes',style: TextStyles.font18NavyBlueSemiBold,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text('Ingredientes',style: TextStyles.font18NavyBlueSemiBold,),
+                    horizontalSpacing(160.w),
+                    Text('10 ingredientes',textAlign:TextAlign.end ,style: TextStyles.font10greyLight,),
+
+                  ],
+                ),
                 verticalSpacing(10.h),
                 SizedBox(
                   height: 190.h,

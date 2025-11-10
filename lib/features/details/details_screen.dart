@@ -15,88 +15,93 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: BlocProvider(
-        create: (_) => FavoriteCubit(),
-        child: Scaffold(
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            centerTitle: true,
-            leading: IconButton(
-              onPressed: () {
-                context.pop();
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios_new,
-                color: ColorsManager.white,
-              ),
-            ),
-            backgroundColor: ColorsManager.darkBlue,
-            title: Text(
-              'Hamburguesa especial',
-              style: TextStyles.font16WhiteSemiBold,
+    return BlocProvider(
+      create: (_) => FavoriteCubit(),
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              context.pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              color: ColorsManager.white,
             ),
           ),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                height: 730.h,
-                width: MediaQuery.of(context).size.width,
-                child: SingleChildScrollView(
-                  child: LayoutBuilder(builder:
-                      (BuildContext context, BoxConstraints constraints) {
-                    return Stack(
-                      children: [
-                        Image.asset(
-                          Assets.imagesBurgerDetails,
+          backgroundColor: ColorsManager.darkBlue,
+          title: Text(
+            'Hamburguesa especial',
+            style: TextStyles.font16WhiteSemiBold,
+          ),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SizedBox(
+              height: 690.h,
+              width: MediaQuery.of(context).size.width,
+              child: SingleChildScrollView(
+                child: LayoutBuilder(builder:
+                    (BuildContext context, BoxConstraints constraints) {
+                  return Stack(
+                    children: [
+                      ClipRect(
+                        child: Align(
+                          alignment: Alignment.center,
+                          heightFactor: 0.7.h,
+                          child: Image.asset(
+                            fit: BoxFit.cover,
+                            Assets.imagesBurgerDetails,
+                          ),
                         ),
-                        const CustomPointer(),
-                        BlocBuilder<FavoriteCubit, bool>(
-                          builder: (context, isFavorite) {
-                            return Positioned(
-                              top: 430.h,
-                              right: 80.w,
-                              child: Container(
-                                height: 48.h,
-                                width: 48.w,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: ColorsManager.red,
-                                ),
-                                child: IconButton(
-                                  alignment: Alignment.center,
-                                  iconSize: 30.sp,
-                                  icon: Icon(
-                                    isFavorite
-                                        ? Icons.favorite
-                                        : Icons.favorite_border,
-                                    color:
-                                        isFavorite ? Colors.red : Colors.grey,
-                                  ),
-                                  onPressed: () {
-                                    context
-                                        .read<FavoriteCubit>()
-                                        .toggleFavorite();
-                                  },
-                                ),
+                      ),
+                      const CustomPointer(),
+                      BlocBuilder<FavoriteCubit, bool>(
+                        builder: (context, isFavorite) {
+                          return Positioned(
+                            top: 325.h,
+                            right:40.w,
+                            child: Container(
+                              height: 48.h,
+                              width: 48.w,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: ColorsManager.red,
                               ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          top: 520.h,
-                          child:
-                              const CustomContainerDescriptionAndIntegration(),
-                        )
-                      ],
-                    );
-                  }),
-                ),
+                              child: IconButton(
+                                alignment: Alignment.center,
+                                iconSize: 30.sp,
+                                icon: Icon(
+                                  isFavorite
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
+                                  color:
+                                      isFavorite ? Colors.red : Colors.grey,
+                                ),
+                                onPressed: () {
+                                  context
+                                      .read<FavoriteCubit>()
+                                      .toggleFavorite();
+                                },
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      Positioned(
+                        top: 410.h,
+                        child:
+                            const CustomContainerDescriptionAndIntegration(),
+                      )
+                    ],
+                  );
+                }),
               ),
-              const CustomButtonWithNumberTextContainer()
-            ],
-          ),
+            ),
+            const CustomButtonWithNumberTextContainer()
+          ],
         ),
       ),
     );

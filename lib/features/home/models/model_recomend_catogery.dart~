@@ -31,7 +31,7 @@ final List<RecomendesCategoryModel> RecomendesCategories = [
     price: 16.00,
   ),
   const RecomendesCategoryModel(
-    title: 'Naturales',
+    title: 'Malteadas tropicales',
     subTitle: 'Malteadas tropicales',
     description: 'Salsa clásica de la casa',
     image: Assets.imagesNaturales,
